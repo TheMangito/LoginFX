@@ -1,18 +1,23 @@
 package com.example.login;
 
-
+import com.resend.*;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.resend.core.exception.ResendException;
+import com.resend.services.emails.model.SendEmailRequest;
+import com.resend.services.emails.model.SendEmailResponse;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
@@ -66,8 +71,7 @@ public class HelloController {
     public void initialize() throws IOException {
         updateRegister();
         loadRememberMe();
-        Draggable draggable = new Draggable();
-        draggable.makeDraggable(pane);
+        System.out.println(randomNumber());
     }
 
     public void loadRememberMe() throws IOException {
@@ -87,16 +91,18 @@ public class HelloController {
             e.printStackTrace();
         }
     }
-    public void signUp(){
+    public void signUp() throws ResendException, IOException {
         if (!name.getText().isEmpty() && !email.getText().isEmpty() && !username.getText().isEmpty() && !password.getText().isEmpty() &&
         checkBox.isSelected()){
 
             User user = new User(name.getText(), username.getText(), password.getText(), email.getText());
             ObjectMapper mapper = new ObjectMapper();
             users.add(user);
+
             try {
                 ObjectWriter writer = mapper.writerWithDefaultPrettyPrinter();
                 writer.writeValue(registers, users);
+                sendMail(username.getText(), "1", "");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -131,6 +137,32 @@ public class HelloController {
                 }
             }
         }
+
+    }
+    public String readHTMLFile() throws IOException{
+        FileInputStream fis = new FileInputStream("src/main/resources/com/example/login/htmlMail.txt");
+        String stringTooLong = IOUtils.toString(fis, "UTF-8");
+        return stringTooLong;
+    }
+
+    public int randomNumber(){
+        return (int)Math.floor(Math.random()*(999999-100000+1)+100000);
+    }
+    public void sendMail(String username, String codigo, String email) throws ResendException, IOException {
+        Resend resend = new Resend("re_S4LJFBDN_KGvhab1dgqQJkPE1j1ZQzKR8");
+
+        SendEmailRequest sendEmailRequest = SendEmailRequest.builder()
+                .from("onboarding@resend.dev")
+                .to("themanguito21@gmail.com", "sr.esmoquin@outlook.com")
+                .subject("Codigo De Verificacion")
+                .html("<img src=\"https://i.imgur.com/CCvfOXa.png\">\n" +
+                        "<h1 style=\"width: 975px; padding: 20px; color: #f4f4f7; text-align: center; background-color: #343773; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;\"><b>Bienvenido   " + username +"</b></h1>\n" +
+                        "<p style=\"width: 975px; color: #131313; padding: 20px; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 12px;\">¡Bienvenido/a a nuestra aplicación! Estamos encantados de tenerte con nosotros. Esperamos que disfrutes de todas las funciones y servicios que ofrecemos. Si necesitas ayuda o tienes alguna pregunta, no dudes en contactarnos. ¡Que tengas una excelente experiencia!</p>\n" +
+                        "<p style=\"width: 975px; color: #131313; padding: 20px; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 12px;\"><strong>Código de verificación en dos pasos: "+ codigo +"</strong></p>\n" +
+                        "<p> </p>")
+                .build();
+
+        SendEmailResponse data = resend.emails().send(sendEmailRequest);
 
     }
     public void logout(){

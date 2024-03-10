@@ -10,7 +10,17 @@
   "email" : "mangito@test.com"
 }, {
   "name" : "a",
-  "username" : "c",
+  "username" : "TheMangito",
+  "password" : "d",
+  "email" : "b"
+}, {
+  "name" : "a",
+  "username" : "TheMangito",
+  "password" : "123",
+  "email" : "b"
+}, {
+  "name" : "a",
+  "username" : "TheMangito",
   "password" : "d",
   "email" : "b"
 } ]

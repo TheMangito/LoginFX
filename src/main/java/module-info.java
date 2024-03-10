@@ -8,6 +8,7 @@ module com.example.login {
     requires com.fasterxml.jackson.databind;
     requires com.fasterxml.jackson.datatype.jsr310;
     requires org.apache.commons.io;
+    requires resend.java;
 
     opens com.example.login to javafx.fxml;
     exports com.example.login;
