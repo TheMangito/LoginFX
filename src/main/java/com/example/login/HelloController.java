@@ -68,11 +68,25 @@ public class HelloController {
     private File registers = new File("src/main/resources/registers/registers.json");
     private File rememberMe = new File("src/main/resources/registers/rememberMe.json");
 
+    @FXML
     public void initialize() throws IOException {
         updateRegister();
         loadRememberMe();
         System.out.println(randomNumber());
+        Alert alert1= new Alert("Prueba", "ButtonPrueba");
+        Reusable alertNode= new Reusable();
+        alertNode.setButtonText(alert1.getButtonText());
+        alertNode.setLabelText(alert1.getText());
+
+        loginPane.setDisable(true);
+        alertNode.setOnAction(event -> {
+            loginPane.getChildren().remove(alertNode);
+        });
+
+        AnchorPane.setTopAnchor(alertNode, 50.0);
+        loginPane.getChildren().add(alertNode);
     }
+
 
     public void loadRememberMe() throws IOException {
         String json = FileUtils.readFileToString(rememberMe, StandardCharsets.UTF_8);

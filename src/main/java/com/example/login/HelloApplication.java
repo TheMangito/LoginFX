@@ -21,6 +21,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Pane root = fxmlLoader.load();
         Scene scene = new Scene(root, 1090, 768);
+        SceneRoot.setRoot(root);
 
         // Hacer la escena arrastrable
         root.setOnMousePressed((MouseEvent event) -> {

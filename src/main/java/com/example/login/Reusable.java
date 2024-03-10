@@ -4,9 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
@@ -14,10 +18,13 @@ import java.io.IOException;
 public class Reusable extends Pane {
     @FXML private Label labelRe;
     @FXML private Button buttonRe;
+
+    private Parent root = SceneRoot.getRoot();;
+
     public Reusable() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("reusableAdvisement.fxml"));
-            loader.setRoot(this);
+            loader.setRoot(root);
             loader.setController(this);
             loader.load();
         } catch (IOException e) {
