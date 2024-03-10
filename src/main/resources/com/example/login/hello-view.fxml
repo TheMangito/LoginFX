@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1090.0" styleClass="background-Login-Base-Color" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.login.HelloController">
+   <children>
+
+      <AnchorPane fx:id="registerPane" prefHeight="768.0" prefWidth="1090.0" styleClass="background-Register-Base-Color" stylesheets="@styles.css" visible="false">
+         <children>
+            <ImageView fitHeight="768.0" fitWidth="573.0" layoutX="539.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/imagen.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="67.0" layoutY="108.0" prefHeight="93.0" prefWidth="379.0" styleClass="text-title" text="Create An Account" />
+            <Label layoutX="70.0" layoutY="194.0" prefHeight="47.0" prefWidth="117.0" text="Full Name" />
+            <Label layoutX="70.0" layoutY="347.0" prefHeight="47.0" prefWidth="117.0" text="Username" />
+            <Label layoutX="70.0" layoutY="430.0" prefHeight="47.0" prefWidth="117.0" text="Password" />
+            <TextField fx:id="name" layoutX="70.0" layoutY="233.0" prefHeight="33.0" prefWidth="360.0" styleClass="text-field-underline" />
+            <TextField fx:id="email" layoutX="70.0" layoutY="318.0" prefHeight="33.0" prefWidth="360.0" styleClass="text-field-underline" />
+            <TextField fx:id="username" layoutX="70.0" layoutY="394.0" prefHeight="33.0" prefWidth="360.0" styleClass="text-field-underline" />
+            <PasswordField fx:id="password" layoutX="70.0" layoutY="471.0" prefHeight="33.0" prefWidth="360.0" styleClass="text-field-underline" />
+            <Label layoutX="70.0" layoutY="271.0" prefHeight="47.0" prefWidth="117.0" text="Email" />
+            <CheckBox fx:id="checkBox" layoutX="70.0" layoutY="521.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="291.0" text="I accept the terms and conditions of service" />
+            <Button fx:id="signUp" layoutX="70.0" layoutY="565.0" mnemonicParsing="false" onAction="#signUp" prefHeight="47.0" prefWidth="162.0" styleClass="button-design" text="Sign Up" />
+            <Button fx:id="backToLogin" layoutX="67.0" layoutY="51.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="47.0" prefWidth="52.0" styleClass="button-back-Design" text="&lt;" />
+
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="welcomePane" prefHeight="774.0" prefWidth="1090.0" visible="false">
+         <children>
+            <ImageView fitHeight="777.0" fitWidth="1168.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/bienvenida.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="welcomeText" layoutX="384.0" layoutY="298.0" prefHeight="182.0" prefWidth="736.0" styleClass="text-welcome" text="Bienvenido" />
+            <Button fx:id="logout" layoutX="918.0" layoutY="43.0" mnemonicParsing="false" onAction="#logout" prefHeight="64.0" prefWidth="153.0" styleClass="text-logout-Design" text="Exit" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="loginPane" prefHeight="768.0" prefWidth="1090.0">
+         <children>
+            <ImageView fitHeight="768.0" fitWidth="532.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="558.20263671875" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../../../images/cohete.jpg" />
+               </image>
+            </ImageView>
+                  <Pane layoutX="551.0" layoutY="-12.0" prefHeight="780.0" prefWidth="30.0" styleClass="background-limiter-color" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Pane layoutX="532.0" layoutY="-18.0" prefHeight="786.0" prefWidth="21.0" styleClass="background-limiter-color2" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Label layoutX="709.0" layoutY="173.0" prefHeight="64.0" prefWidth="257.0" styleClass="text-title" text="USER LOGIN" />
+            <Label layoutX="648.0" layoutY="281.0" prefHeight="33.0" prefWidth="137.0" styleClass="text-Design" text="Username" />
+            <Label layoutX="641.0" layoutY="250.0" prefHeight="17.0" prefWidth="306.0" styleClass="text-Design" />
+            <Label layoutX="648.0" layoutY="370.0" prefHeight="33.0" prefWidth="137.0" styleClass="text-Design" text="Password" />
+            <TextField fx:id="usernameLogin" layoutX="648.0" layoutY="320.0" prefHeight="33.0" prefWidth="379.0" styleClass="text-field-underline" />
+            <PasswordField fx:id="passwordLogin" layoutX="648.0" layoutY="411.0" prefHeight="34.0" prefWidth="379.0" styleClass="text-field-underline" />
+            <Button fx:id="loginButton" layoutX="757.0" layoutY="490.0" mnemonicParsing="false" onAction="#loginButton" prefHeight="40.0" prefWidth="162.0" styleClass="button-design" text="Login" />
+            <Button fx:id="createAccount" layoutX="759.0" layoutY="546.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="25.0" prefWidth="162.0" styleClass="text-hiperlink-Design" text="Create An Account" />
+            <CheckBox fx:id="rememberMeBox" layoutX="656.0" layoutY="459.0" mnemonicParsing="false" text="Remember" />
+            <Button fx:id="loginClose" layoutX="1039.0" mnemonicParsing="false" onAction="#closeLogin" prefHeight="34.0" prefWidth="36.0" styleClass="close-buttom-design" text="X" />
+
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>

@@ -1,0 +1,100 @@
+.background-Login-Base-Color{
+    -fx-background-color: #f8f9fb;
+}
+
+.background-Register-Base-Color{
+    -fx-background-color: #ffffff;
+}
+.background-limiter-color{
+    -fx-background-color: #31365B;
+}
+.background-limiter-color2{
+    -fx-background-color: #252642;
+}
+.text-title{
+    -fx-font-family: "Arial";
+    -fx-text-fill: #151936;
+    -fx-font-size: 40px;
+    -fx-effect: dropshadow(gaussian, rgb(37, 38, 66), 1.2, 0.2, 1, 1);
+}
+.text-field-underline{
+    -fx-font-size: 14px;
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-border-color: transparent transparent #181818 transparent;
+    -fx-border-width: 2px;
+}
+
+.button-design {
+    -fx-font-family: "Arial";
+    -fx-font-size: 15px;
+    -fx-effect: dropshadow(gaussian, rgb(37, 38, 66), 1.2, 0.2, 1, 1);
+    -fx-background-color: linear-gradient(#252642, #151936);
+    -fx-background-radius: 35;
+    -fx-text-fill: #f8f9fb;
+}
+.button-design:hover{
+    -fx-background-color: linear-gradient(#343773, #353977);
+    -fx-background-radius: 25;
+    -fx-scale-x: 1.1px;
+    -fx-scale-y: 1.1px;
+    -fx-effect: innershadow( gaussian , rgba(14, 13, 13, 0.7), 20,0,0,0 );
+}
+.text-Design{
+    -fx-font-family: "Arial";
+    -fx-font-size: 15px;
+    -fx-text-fill: #08113b;
+}
+.text-hiperlink-Design{
+    -fx-font-family: "Arial";
+    -fx-font-size: 15px;
+    -fx-text-fill: #343773;
+    -fx-alignment: center;
+    -fx-background-color: rgba(255, 255, 255, 0);
+}
+.text-hiperlink-Design:hover{
+    -fx-underline: true;
+}
+.button-back-Design{
+    -fx-border-width: 3;
+    -fx-border-radius: 10;
+    -fx-border-color: #151936;
+    -fx-font-family: "Arial";
+    -fx-font-size: 25px;
+    -fx-text-fill: #151936;
+    -fx-alignment: center;
+    -fx-background-color: rgba(255, 255, 255, 0);
+}
+.button-back-Design:hover{
+    -fx-scale-x: 1.1px;
+    -fx-scale-y: 1.1px;
+}
+.text-welcome{
+    -fx-font-family: "Arial";
+    -fx-font-size: 60px;
+    -fx-text-fill: #f8f9fb;
+}
+
+.text-logout-Design{
+    -fx-font-family: "Arial";
+    -fx-font-size: 40px;
+    -fx-text-fill: #e9e9ff;
+    -fx-alignment: center;
+    -fx-background-color: rgba(255, 255, 255, 0);
+    -fx-border-width: 4;
+    -fx-border-color: transparent transparent #f6f7f9 transparent;
+}
+.text-logout-Design:hover{
+    -fx-border-color: transparent transparent #4596a9 transparent;
+
+}
+.close-buttom-design{
+    -fx-font-family: "Arial";
+    -fx-font-size: 25px;
+    -fx-text-fill: #11173d;
+    -fx-alignment: center;
+    -fx-background-color: rgba(255, 255, 255, 0);
+}
+.close-buttom-design:hover{
+    -fx-text-fill: #1c4f98;
+
+}
